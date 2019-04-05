@@ -6,7 +6,10 @@
   * The last parameter accepts a callback 
   * In the body of the function return the callback with the two parameters that you created
 */
-
+function consume(a,b,cb)
+{
+  return cb(a,b);
+}
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
@@ -14,12 +17,14 @@
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
 
+function add(a,b){return a+b}
+function multiply(a,b){return a*b}
+function greeting(a,b){return `Hello ${a} ${b}, nice to meet yout!`}
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// consume(2,2,add); // 4
-// consume(10,16,multiply); // 160
-// consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
-
+console.log(consume(2,2,add)); // 4
+console.log(consume(10,16,multiply)); // 160
+console.log(consume("Mary","Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 // ==== Closures ==== 
 
@@ -27,6 +32,12 @@
 
 // Explanation: 
 
+/* 
+  Variables have scope, meaning that they start at the closest variables 
+  nested inside that same scope, then they work strictly up the tree to the next scope 
+  (can not move latterally), so local variables are frist then parent variables then parent-parent 
+  variables etc till you get to the global scope which is the last thing checked.
+*/
 
 const external = "I'm outside the function";
 
